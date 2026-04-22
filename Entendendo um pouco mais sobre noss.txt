@@ -1,0 +1,60 @@
+Entendendo um pouco mais sobre nossa base:
+	Contexto: Uma rede de fast-food tem em seus planos adicionar um novo item no seu Menu. no entanto ele ainda não decidiram entre três possibilidades de campanhas de marketing para promover o novo produto. Para determinar quano promoção teve o melhor efeito nas vendas, o novo item é introduzido de foram randômica em diferentes locais do mercado. As diferentes promoções foram usadas em cada local e as vendas semanadas são registradas em cada semana.
+
+	Objetivo: Medir os resultados dos testes AB e decidir qual estratégia de marketing funcionou mais.
+	
+	Informações que temos: 
+		- Qual é o mercado
+		- De qual região é o mercado
+		- Quais foram as campanhas
+		- Qual é o tamanho dos mercados
+		- Qual é a semana do resultado
+		- Quando foi vendido naquele local, com aquela promoção e naquela semana
+		- Quantos anos o mercado tem
+		
+	Conversando comigo mesmo:
+		- Já temos poucas colunas e linhas, então não é possível se dar o luxo de ignorar algumas linhas defeituosas
+		- Vamos dar uma olhada se precisa mudar o tipo da coluna para ser mais eficiente a analise
+		    Não precisa nenhuma modificação
+
+		- Vamos dar uma olhada se existe valores nulos
+			Não existe
+
+		- Verificar se existe um dado "pré-teste" para identificar o comportamento natural do local
+			Não existe dados históricos
+
+		- Verificar se existe alguma distribuição não proporcional entre os grupos
+			Não existe nenhum viés inicial no teste.
+
+		- Verificar se existe algum viés desde o inicio de cada base.
+			Criar visões que retornem as vendas por :
+			  - Mercado; 
+			  - Localização; 
+			  - Anos por estabelecimento; 
+			  - Promoção
+			  - Semana
+			Não existe nenhum viés inicial no teste.
+		
+		- Encontrar o método que vamos analisar os resultados
+		- Qual foi o intervalo de confiança que foi determinado?
+		- Qual foi o valor p de confiança?
+		- Qual foi nossa conclusão final?
+	Insight's:
+		- Nenhuma campanha apresentou melhora durante seu decorrer, ou seja, todas apresentaram fácil entendimento pelo público
+		- Em todas as semanas a promoção 1 apresentou melhores resultados que as demais promoções
+		- A média geral de vendas não apresenta muita diferença entre as promoções
+		- Existe um mercado (ID 2) que não rodou as 3 campanhas, podemos invalidar os resultados.
+			- Fazer um tratamento para esse caso.
+			- Tentei retirar esse mercado, no entanto, não é possível dado que suja o viés dos grupos. dessa forma, vou apenas inserir uma 'regressão' para estipular o possível valor da campanha 2.
+		- Não existe uma diferença significativa no entre os tamanhos dos mercados.	
+		- Não existe uma discrepância ou correlação entre o ano dos mercados e seu valor em vendas.
+
+Hiposete nula: Nenhuma campanha apresenta um amelhoria significativa
+
+Hiposte alternativa: Há sim uma campanha que tenha confiança de 90% de certeza que, quando replicada em toda a nossa população apresentará o aumento visto no teste.
+
+Qual métrica vou utilizar como "verdade":
+	- SalesInThousands: Quando foi vendido em cada campanha
+
+
+
