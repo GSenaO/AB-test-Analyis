@@ -30,6 +30,7 @@ Para manter a integridade estatística, optei por não excluir o mercado, mas si
 * **Filtro:** Seleção apenas da base de treino de mercados de tamanho similar (`MarketSize = 'Small'`).
 * **Normalização:** Aplicação de `StandardScaler` (Z-Score) nas features (`week`, `AgeOfStore`, `Promotion`, `MarketID`) para garantir que a regressão não sofra viés de escala.
 * **Modelo:** Treinamento de uma `LinearRegression` para predizer os valores semanais de `SalesInThousands` ausentes. Os valores preditos (60.58 a 62.37) mantiveram a consistência da amostra.
+* **PS: ANOVA foi realizada com e sem os registros sintéticos, e que o resultado não muda.
 
 ---
 
